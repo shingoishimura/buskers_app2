@@ -15,16 +15,16 @@
 
 ### Association
 
-- has_many :prototypes
+- has_many :spot
 - has_many :comments
 
-## prototypes テーブル
+## spot テーブル
 
 | Column     | Type      | Options                        |
 | ------     | ------    | ---------------------------    |
-| title      | string    | null: false                    |
-| catch_copy | text      | null: false                    |
-| concept    | text      | null: false                    |
+| name       | string    | null: false                    |
+| add        | text      | null: false                    |
+| note       | text      | null: false                    |
 | user       | reference | null: false, foreign_key: true |
 ### Association
 
@@ -36,11 +36,11 @@
 | Column      | Type       | Options                        |
 | ------      | ---------- | ------------------------------ |
 | user        | references | null: false, foreign_key: true |
-| prototype   | references | null: false, foreign_key: true |
+| spot        | references | null: false, foreign_key: true |
 | text        | text       | null: false                    | 
 
 ### Association
 
-- belongs_to :prototype
+- belongs_to :spot
 - belongs_to :user
 

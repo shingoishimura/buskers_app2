@@ -3,11 +3,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to prototype_path(@comment.prototype)
+      redirect_to spot_path(@comment.spot)
     else
-      @prototype = @comment.prototype
-      @comments = @prototype.comments
-      render "prototypes/show" 
+      @spot = @comment.spot
+      @comments = @spot.comments
+      render "spots/show" 
 
     end
   end
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   private
 
  def comment_params
-   params.require(:comment).permit(:text).merge(user_id: current_user.id, prototype_id: params[:prototype_id])
+   params.require(:comment).permit(:text).merge(user_id: current_user.id, spot_id: params[:spot_id])
  end
 
 end
